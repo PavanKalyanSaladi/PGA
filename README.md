@@ -1,1 +1,1 @@
-# Prometheus / Grafana Monitring & Alerting
+# Prometheus / Grafana Monitoring & Alerting
