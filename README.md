@@ -87,3 +87,49 @@ Now lets verify our installation and try to access it on browser using port-forw
 ```
 kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 8000:9090
 ```
+<br>
+============================================================================================
+
+### MONITORING METRICS USING GRAFANA DASHBOARDS
+Grafana is an open source analytics and monitoring solution. By default, Grafana is used for querying Prometheus
+```
+kubectl get svc
+```
+<br>
+<img width="824" alt="image" src="https://github.com/user-attachments/assets/8548c170-2052-459c-b3de-04c01dc4e1cd" />'
+
+<br>
+
+#### Port Forwarding
+
+Create a port forwarding to access the Grafana UI using the kubectl port-forwardcommand. This command will forward the local port 8000 to port 3000 which is the default port of a Grafana pod:
+
+Get the pod name using kubectl get pods
+```
+kubectl port-forward prometheus-grafana-64d55b67d8-8p2vd 8000:3000
+```
+
+Log in using ```admin``` as the username and ```prom-operator``` as the password:
+
+#### Import dashboard
+
+Once you are able to login to Grafana successfully you can try exploring using the default dashboard which are provided by Grafana
+
+Add Prometheus DataSource - With this helm chart Prometheus data source will be added by default. You can verify as shown below:
+
+Click on Setting ->datasources
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/e1bdab12-aae1-4afe-bfdd-71722a59e243" />'
+<br>
+
+Now we will create a dashboard which shows us all the pod details like CPU, memory, storage etc.
+
+Grafana provides lot of dashboards which we can directly import in our Grafana instance and use it.
+
+In this example, we will use [this](https://grafana.com/grafana/dashboards/6781-kubernetes-pod-overview/) dashboard
+
+Click on + icon -> Import and the save it
+
+This is how the dashboard will look like and provide all the metrics for your pods.
+
+![image](https://github.com/user-attachments/assets/a5eaed10-5f26-43b4-a4de-96431afd3220)
