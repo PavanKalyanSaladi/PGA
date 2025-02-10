@@ -38,7 +38,7 @@ sudo snap install helm --classic
 ```
 
 <br>
-============================================================================================
+========================================================================
 
 <br>
 
@@ -88,7 +88,7 @@ Now lets verify our installation and try to access it on browser using port-forw
 kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 8000:9090
 ```
 <br>
-============================================================================================
+=====================================================================
 
 ### MONITORING METRICS USING GRAFANA DASHBOARDS
 Grafana is an open source analytics and monitoring solution. By default, Grafana is used for querying Prometheus
